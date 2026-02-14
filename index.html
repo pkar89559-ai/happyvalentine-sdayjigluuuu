@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jigisha ❤️ My Forever</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;}
+
+body{
+background:black;
+color:white;
+overflow-x:hidden;
+scroll-behavior:smooth;
+}
+
+/* Background Slideshow */
+.bg{
+position:fixed;
+width:100%;
+height:100%;
+z-index:-3;
+overflow:hidden;
+}
+.bg img{
+position:absolute;
+width:100%;
+height:100%;
+object-fit:cover;
+opacity:0;
+transition:opacity 2s ease-in-out;
+filter:brightness(0.4);
+}
+.bg img.active{opacity:1;}
+
+.overlay{
+position:fixed;
+width:100%;
+height:100%;
+background:radial-gradient(circle at center,rgba(255,0,90,0.2),rgba(0,0,0,0.9));
+z-index:-2;
+}
+
+/* Cursor Glow */
+.cursor{
+position:fixed;
+width:20px;
+height:20px;
+border-radius:50%;
+background:#ff2e63;
+pointer-events:none;
+mix-blend-mode:screen;
+box-shadow:0 0 20px #ff2e63,0 0 40px #ff2e63;
+transform:translate(-50%,-50%);
+z-index:999;
+}
+
+/* Hero */
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+.hero h1{
+font-family:'Great Vibes';
+font-size:85px;
+letter-spacing:3px;
+animation:fade 3s ease forwards;
+opacity:0;
+}
+.hero p{
+margin-top:20px;
+font-size:22px;
+opacity:0;
+animation:fade 3s ease 2s forwards;
+}
+@keyframes fade{to{opacity:1;}}
+
+.loveBtn{
+margin-top:40px;
+padding:15px 45px;
+border-radius:50px;
+border:2px solid #ff2e63;
+background:transparent;
+color:white;
+font-size:18px;
+cursor:pointer;
+transition:0.4s;
+}
+.loveBtn:hover{
+background:#ff2e63;
+box-shadow:0 0 30px #ff2e63;
+}
+
+/* Glass Card */
+.card{
+margin:100px auto;
+width:90%;
+max-width:800px;
+padding:40px;
+border-radius:30px;
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(20px);
+box-shadow:0 20px 60px rgba(0,0,0,0.6);
+}
+
+#letter{
+font-size:20px;
+line-height:1.8;
+min-height:120px;
+}
+
+/* Forever Section */
+.forever{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+}
+
+.forever h2{
+font-size:50px;
+margin-bottom:30px;
+}
+
+.choice button{
+margin:10px;
+padding:15px 30px;
+border:none;
+border-radius:40px;
+font-size:18px;
+cursor:pointer;
+}
+
+.yes{background:#ff2e63;color:white;}
+.no{background:white;color:black;position:relative;}
+
+#afterYes{
+display:none;
+text-align:center;
+padding:100px 20px;
+}
+
+footer{
+text-align:center;
+padding:30px;
+background:black;
+}
+
+</style>
+</head>
+<body>
+
+<div class="bg">
+<img src="1.jpg" class="active">
+<img src="2.jpg">
+<img src="3.jpg">
+<img src="4.jpg">
+<img src="5.jpg">
+</div>
+
+<div class="overlay"></div>
+<div class="cursor" id="cursor"></div>
+
+<audio id="music" loop>
+<source src="music.mp3" type="audio/mp3">
+</audio>
+
+<div class="hero">
+<h1>Jigisha ❤️</h1>
+<p>You are my universe, my peace, my forever.</p>
+<button class="loveBtn" onclick="startExperience()">Begin Our Story ✨</button>
+</div>
+
+<div class="card">
+<h2>My Heart Says...</h2>
+<p id="letter"></p>
+</div>
+
+<div class="forever">
+<h2>Will You Be Mine Forever? 💖</h2>
+<div class="choice">
+<button class="yes" onclick="celebrate()">YES ❤️</button>
+<button class="no" id="noBtn">NO 😜</button>
+</div>
+</div>
+
+<div id="afterYes">
+<h1 style="font-family:'Great Vibes'; font-size:80px;">Forever Starts Now 💍</h1>
+<p style="font-size:22px; margin-top:20px;">
+Jigisha, I promise to love you, respect you, and stand beside you in every situation.  
+You are my today, my tomorrow, and my always. ❤️
+</p>
+<h2 style="margin-top:40px;">I Love You Jigisha 💖</h2>
+</div>
+
+<footer>
+Made with infinite love for Jigisha 💕
+</footer>
+
+<script>
+
+/* Background slideshow */
+let slides=document.querySelectorAll(".bg img");
+let i=0;
+setInterval(()=>{
+slides[i].classList.remove("active");
+i=(i+1)%slides.length;
+slides[i].classList.add("active");
+},4000);
+
+/* Cursor Glow */
+const cursor=document.getElementById("cursor");
+document.addEventListener("mousemove",(e)=>{
+cursor.style.left=e.clientX+"px";
+cursor.style.top=e.clientY+"px";
+});
+
+/* Start */
+function startExperience(){
+document.getElementById("music").play();
+window.scrollTo({top:window.innerHeight,behavior:"smooth"});
+}
+
+/* Typing Letter */
+const text="Jigisha, loving you is the most beautiful thing that ever happened to me. Your smile heals me. Your presence completes me. I promise to stand beside you in every situation. You are not just my Valentine — you are my forever. ❤️";
+let index=0;
+function type(){
+if(index<text.length){
+document.getElementById("letter").innerHTML+=text.charAt(index);
+index++;
+setTimeout(type,40);
+}
+}
+type();
+
+/* NO button escape */
+const noBtn=document.getElementById("noBtn");
+noBtn.addEventListener("mouseover",()=>{
+noBtn.style.position="absolute";
+noBtn.style.left=Math.random()*300+"px";
+noBtn.style.top=Math.random()*300+"px";
+});
+
+/* Rose petals */
+function createPetal(){
+const petal=document.createElement("div");
+petal.innerHTML="🌹";
+petal.style.position="fixed";
+petal.style.top="-10px";
+petal.style.left=Math.random()*100+"vw";
+petal.style.fontSize="20px";
+petal.style.animation="fall 6s linear forwards";
+document.body.appendChild(petal);
+setTimeout(()=>{petal.remove();},6000);
+}
+setInterval(createPetal,500);
+
+const style=document.createElement("style");
+style.innerHTML=`
+@keyframes fall{
+0%{transform:translateY(0) rotate(0);}
+100%{transform:translateY(100vh) rotate(360deg);}
+}`;
+document.head.appendChild(style);
+
+/* Celebrate */
+function celebrate(){
+
+document.querySelector(".forever").style.display="none";
+document.getElementById("afterYes").style.display="block";
+
+/* Fireworks */
+for(let i=0;i<120;i++){
+const f=document.createElement("div");
+f.style.position="fixed";
+f.style.width="6px";
+f.style.height="6px";
+f.style.borderRadius="50%";
+f.style.background="white";
+f.style.left="50%";
+f.style.top="50%";
+f.animate([
+{transform:'translate(0,0)',opacity:1},
+{transform:`translate(${Math.random()*800-400}px,${Math.random()*800-400}px)`,opacity:0}
+],{duration:1500});
+document.body.appendChild(f);
+setTimeout(()=>{f.remove();},1500);
+}
+
+/* Floating Love Text */
+for(let i=0;i<25;i++){
+const text=document.createElement("div");
+text.innerHTML="I Love You Jigisha ❤️";
+text.style.position="fixed";
+text.style.left=Math.random()*100+"vw";
+text.style.top=Math.random()*100+"vh";
+text.style.color="#ff2e63";
+text.style.fontSize="22px";
+text.style.animation="fadeText 4s forwards";
+document.body.appendChild(text);
+setTimeout(()=>{text.remove();},4000);
+}
+
+const style2=document.createElement("style");
+style2.innerHTML=`
+@keyframes fadeText{
+0%{opacity:0; transform:scale(0.5);}
+50%{opacity:1; transform:scale(1.3);}
+100%{opacity:0; transform:scale(1);}
+}`;
+document.head.appendChild(style2);
+
+}
+
+</script>
+
+</body>
+</html>
